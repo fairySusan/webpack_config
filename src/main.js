@@ -1,4 +1,7 @@
 require('./home');
 console.log('wodelovelove');
-const h1 = document.getElementById('hh1');
-h1.innerHTML = `hello world123!!!${process.env.NODE_ENV}`;
+import './assets/index.css';
+var h1 = document.getElementById('hh1');
+var h2 = document.getElementById('hh2');
+h1.innerHTML = `process.env.NODE_ENV ${process.env.NODE_ENV}`;
+h2.innerHTML = `process.env.PROD_NAME ${process.env.PROD_NAME}`;

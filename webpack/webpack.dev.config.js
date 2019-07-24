@@ -21,6 +21,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   plugins: [
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),  // 模块热更新插件
+    new webpack.DefinePlugin({
+      'process.env.PROD_NAME': JSON.stringify(process.env.PROD_NAME), // 此插件用于定义一些源文件可以拿到的变量
+    })
   ]
 });
 module.exports = devWebpackConfig;
