@@ -51,6 +51,7 @@ module.exports = {
         filename: 'css/[name].css',
         chunkFilename: "css/[id].css"
       }),
+      // 多页面打包
       new HtmlWebpackPlugin({
         title: 'index', // <title>标签的内容
         filename: 'index.html',
