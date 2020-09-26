@@ -6,7 +6,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 可以使css
 module.exports = {
     entry: {
       main: './src/main.js',
-      main2: './src/main2.js'
+      // main2: './src/main2.js'
+      vendor: ['moment']   // 单独打包moment库为独立的js文件。
     },
     output: {
       filename: '[name].js',
@@ -34,8 +35,6 @@ module.exports = {
             },
             {test: /\.(png|svg|jpg|gif)$/, use: ['file-loader']},
         ]
-    },
-    optimization: {
     },
     plugins: [
       new MiniCssExtractPlugin({

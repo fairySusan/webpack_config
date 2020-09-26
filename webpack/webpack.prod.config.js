@@ -13,7 +13,7 @@ const prodWebpackConfig = merge(baseWebpackConfig, {
   mode: 'production',
   devtool: 'none', // 生产环境可在浏览器上调试源码，不建议，这样会暴露源码。可设置为none
   output: {
-    filename: utils.assetsPath('js/[name].[chunkhash].js'),
+    filename: utils.assetsPath('js/[name].[chunkhash].js'),// chunkhash 用于缓存
     path: config.build.assetsRoot,
     publicPath: process.env.NODE_ENV === 'production' ? // 根据mode的值来的
       config.build.assetsPublicPath : config.dev.assetsPublicPath, // 这个代表项目能在localhost：3000下正确访问，是服务的根目录
