@@ -3,7 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); // 可以npm run build
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 可以使css，less打包成单独的css文件，而不是嵌在js文件里面
 module.exports = {
     entry: {
-      main: './src/main.js'
+      main: './src/main.js',
+      main2: './src/main2.js'
     },
     output: {
       filename: '[name].js',
@@ -52,7 +53,15 @@ module.exports = {
       }),
       new HtmlWebpackPlugin({
         title: 'index', // <title>标签的内容
+        filename: 'index.html',
+        chunks: ['main'],
         template: './index.html', // 以哪一个html为模版
+      }),
+      new HtmlWebpackPlugin({
+        title: 'index2', // <title>标签的内容
+        filename: 'index2.html',
+        chunks: ['main2'],
+        template: './index2.html', // 以哪一个html为模版
       }),
     ]
 }

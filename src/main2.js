@@ -1,5 +1,5 @@
 require('./home');
-console.log('wodelovelove');
+console.log('wodelovelove123');
 import './assets/index.less'; // CSS 模块化
 var h1 = document.getElementById('hh1');
 var h2 = document.getElementById('hh2');
