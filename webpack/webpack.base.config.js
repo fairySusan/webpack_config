@@ -6,8 +6,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 可以使css
 module.exports = {
     entry: {
       main: './src/main.js',
-      // main2: './src/main2.js'
-      vendor: ['moment']   // 单独打包moment库为独立的js文件。
+      // main2: './src/main2.js' // 1、多页面打包
+      vendor: ['moment']   //2、单独打包moment库为独立的js文件。
     },
     output: {
       filename: '[name].js',
@@ -41,18 +41,18 @@ module.exports = {
         filename: 'css/[id].css',
         chunkFilename: "css/[id].css"
       }),
-      // 多页面打包
       new HtmlWebpackPlugin({
         title: 'index', // <title>标签的内容
         filename: 'index.html',
         chunks: ['main'], // 要引入的哪一个打包好的bundle
         template: './index.html', // 以哪一个html为模版
       }),
-      new HtmlWebpackPlugin({
-        title: 'index2', // <title>标签的内容
-        filename: 'index2.html',
-        chunks: ['main2'],
-        template: './index2.html', // 以哪一个html为模版
-      }),
+      // 多页面打包
+      // new HtmlWebpackPlugin({
+      //   title: 'index2', // <title>标签的内容
+      //   filename: 'index2.html',
+      //   chunks: ['main2'],
+      //   template: './index2.html', // 以哪一个html为模版
+      // }),
     ]
 }
