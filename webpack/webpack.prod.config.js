@@ -5,6 +5,7 @@ const config = require('../config');
 const merge = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base.config');
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // 每次运行npm run build 可以自动清理上一次打包的文件
+const GitInfoWebpack = require('../plugin/index')
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin"); // 压缩css代码
 console.log('welcome', process.env.PROD_NAME); // 通过cross-env插件定义PROD_NAME，但是在源文件里无法获取，需要DefinePlugin插件
 
@@ -26,7 +27,8 @@ const prodWebpackConfig = merge(baseWebpackConfig, {
     new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
       'process.env.PROD_NAME': JSON.stringify(process.env.PROD_NAME), // 此插件用于定义一些源文件可以拿到的变量
-    })
+    }),
+    new GitInfoWebpack()
   ]
 });
 module.exports = prodWebpackConfig;
